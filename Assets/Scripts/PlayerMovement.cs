@@ -6,7 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rigidBody;
     public int playerPosition = 0;
-    string spaceKey = "space";
+    string jumpKey = "Jump";
+    string horizontal = "Horizontal";
+    string vertical = "Vertical";
     string upKey = "up";
     string downKey = "down";
     string rightKey = "right";
@@ -21,25 +23,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(spaceKey))
+        float horizontalInput = Input.GetAxis(horizontal);
+        float verticalInput = Input.GetAxis(vertical);
+
+        rigidBody.velocity = new Vector3(horizontalInput * 5F, rigidBody.velocity.y, verticalInput * 5f);
+
+        if (Input.GetButtonDown(jumpKey))
         {
-            rigidBody.velocity = new Vector3(0, 5f, 0);
+            rigidBody.velocity = new Vector3(rigidBody.velocity.x, 5f, rigidBody.velocity.z);
         };
-        if (Input.GetKey(upKey))
-        {
-            rigidBody.velocity = new Vector3(0, 0, 5f);
-        };
-        if (Input.GetKey(downKey))
-        {
-            rigidBody.velocity = new Vector3(0, 0, -5f);
-        };
-        if (Input.GetKey(rightKey))
-        {
-            rigidBody.velocity = new Vector3(5f, 0, 0);
-        };
-        if (Input.GetKey(leftKey))
-        {
-            rigidBody.velocity = new Vector3(-5f, 0, 0);
-        };
+
     }
 }
