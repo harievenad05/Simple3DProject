@@ -5,14 +5,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rigidBody;
-    public int playerPosition = 0;
-    string jumpKey = "Jump";
-    string horizontal = "Horizontal";
-    string vertical = "Vertical";
-    string upKey = "up";
-    string downKey = "down";
-    string rightKey = "right";
-    string leftKey = "left";
+    readonly string jumpKey = "Jump";
+    readonly string horizontal = "Horizontal";
+    readonly string vertical = "Vertical";
+    [SerializeField] float movement = 5f;
+    [SerializeField] float jumpHeight = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,11 +23,11 @@ public class PlayerMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis(horizontal);
         float verticalInput = Input.GetAxis(vertical);
 
-        rigidBody.velocity = new Vector3(horizontalInput * 5F, rigidBody.velocity.y, verticalInput * 5f);
+        rigidBody.velocity = new Vector3(horizontalInput * movement, rigidBody.velocity.y, verticalInput * movement);
 
         if (Input.GetButtonDown(jumpKey))
         {
-            rigidBody.velocity = new Vector3(rigidBody.velocity.x, 5f, rigidBody.velocity.z);
+            rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpHeight, rigidBody.velocity.z);
         };
 
     }
