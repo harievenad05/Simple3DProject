@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float movement = 5f;
     [SerializeField] float jumpHeight = 5f;
 
+    [SerializeField] Transform groundCheck;
+    [SerializeField] LayerMask ground;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,4 +34,10 @@ public class PlayerMovement : MonoBehaviour
         };
 
     }
+
+    //bool IsPlayerOnGround()
+    //{
+    //    Physics.CheckSphere(groundCheck.position, 0.1f, );
+
+    //}
 }
