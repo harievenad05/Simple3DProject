@@ -57,7 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2578663277596948734, guid: aeabf7c69f1d44c919692817bfc36801, type: 3}
       propertyPath: m_Name
-      value: FloorType2
+      value: FloorType2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2578663277596948735, guid: aeabf7c69f1d44c919692817bfc36801, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 8ae42f8652afb40c79cd2d6cc9e62684, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeabf7c69f1d44c919692817bfc36801, type: 3}

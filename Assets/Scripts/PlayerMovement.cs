@@ -28,16 +28,15 @@ public class PlayerMovement : MonoBehaviour
 
         rigidBody.velocity = new Vector3(horizontalInput * movement, rigidBody.velocity.y, verticalInput * movement);
 
-        if (Input.GetButtonDown(jumpKey))
+        if (Input.GetButtonDown(jumpKey) && IsPlayerOnGround())
         {
             rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpHeight, rigidBody.velocity.z);
         };
 
     }
 
-    //bool IsPlayerOnGround()
-    //{
-    //    Physics.CheckSphere(groundCheck.position, 0.1f, );
-
-    //}
+    bool IsPlayerOnGround()
+    {
+        return Physics.CheckSphere(groundCheck.position, 0.1f, ground);
+    }
 }
